@@ -173,9 +173,15 @@ ol {
 }
 
 .search-form__label:hover {
+  
+}
+
+.search-form__label-text:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+
 
 .search-form__pseudo-checkbox::after {
   content: "";
@@ -306,5 +312,5 @@ ol {
 }
 
 .preloader {
-  position: absolute;
+  display: flex;
 }
