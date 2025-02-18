@@ -158,6 +158,11 @@ ol {
   gap: 15px;
 }
 
+.search-form__label-text:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .search-form__pseudo-checkbox {
   display: flex;
   align-items: center;
@@ -169,17 +174,11 @@ ol {
   border: 1px solid #fff;
 }
 
-.search-form__label-text:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .search-form__pseudo-checkbox::after {
   content: "";
   width: calc(100% - 3px);
   height: calc(100% - 3px);
   background-color: #fff;
-  position: absolute;
   display: none;
 }
 
