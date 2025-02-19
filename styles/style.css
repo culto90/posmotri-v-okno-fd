@@ -55,11 +55,14 @@ ol {
 }
 
 .visually-hidden {
-  opacity: 0;
-  pointer-events: none;
-  width: 1px;
-  height: 1px;
-}
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
 
 .content {
   display: grid;
@@ -84,7 +87,7 @@ ol {
   font-weight: 700;
   line-height: 70.5px;
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .content__accent {
@@ -92,14 +95,17 @@ ol {
 }
 
 .result__video-container {
+  max-height: 386px;
+  overflow: hidden;
   position: relative;
-  height: 386px;
   margin-bottom: 16px;
 }
 
 .result__video {
+  height: 100%;
   width: 100%;
-  object-fit: fill;
+  object-position: center;
+  object-fit: cover;
 }
 
 .search-form {
@@ -123,9 +129,14 @@ ol {
 
 .search-form__label {
   display: flex;
+  align-items: center;
   width: fit-content;
-  border: 1px solid transparent;
   cursor: pointer;
+}
+
+.search-form__label:hover:not(:has(input[type="text"])) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .search-form__textfield {
@@ -159,18 +170,13 @@ ol {
   gap: 15px;
 }
 
-.search-form__label-text:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .search-form__pseudo-checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 20px;
-  width: 20px;
+  height: 19px;
+  width: 19px;
   margin-right: 5px;
   border: 1px solid #fff;
 }
@@ -183,11 +189,16 @@ ol {
   display: none;
 }
 
+.search-form__checkbox {
+  appearance: none;
+}
+
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   display: block;
 }
 
 .button {
+  appearance: none;
   display: block;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
@@ -226,15 +237,14 @@ ol {
 
 .content__details {
   grid-area: content__details;
-  width: 399px;
 }
 
 .content__list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   position: relative;
-  height: 298px;
+  max-height: 298px;
   overflow-y: auto;
 }
 
@@ -256,6 +266,10 @@ ol {
   cursor: pointer;
 }
 
+.content__card-link:active {
+  background-color: #545050;
+}
+
 .content__card-link:hover {
   text-decoration: underline;
 }
@@ -270,6 +284,7 @@ ol {
 }
 
 .content__video-card-title {
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   line-height: 30px;
   font-weight: 700;
@@ -292,10 +307,10 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
   width: 194px;
-  height: 103px;
+  max-height: 103px;
 }
 
 .more-button {
