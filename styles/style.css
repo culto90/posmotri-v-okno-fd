@@ -95,8 +95,7 @@ ol {
 }
 
 .result__video-container {
-  max-height: 386px;
-  overflow: hidden;
+  height: 386px;
   position: relative;
   margin-bottom: 16px;
 }
@@ -244,13 +243,16 @@ ol {
   flex-direction: column;
   justify-content: start;
   position: relative;
-  max-height: 298px;
+  height: 298px;
+  width: 400px;
   overflow-y: auto;
 }
 
 .content__list-item {
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-inline: 3px;
+}
+
+.content__list-item:not(:last-child) {
   margin-bottom: 30px;
 }
 
@@ -315,6 +317,7 @@ ol {
 
 .more-button {
   flex-shrink: 0;
+  margin-top: 30px;
 }
 
 .preloader {
